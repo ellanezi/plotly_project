@@ -1,0 +1,13 @@
+Region,Month,Sales,Profit,Latitude,Longitude
+West,Jan,120,30,34.05,-118.24
+East,Feb,150,50,36.77,-119.42
+North,Mar,100,20,40.71,-74
+South,Apr,130,40,42.36,-71.06
+Central,May,90,25,41.88,-87.63
+West,Jun,110,35,39.95,-75.16
+East,Jul,200,60,33.44,-112.07
+North,Aug,220,70,29.76,-95.37
+South,Sep,140,45,38.9,-77.03
+Central,Oct,160,55,32.77,-96.79
+West,Nov,180,65,37.77,-122.42
+East,Dec,190,75,39.29,-76.61

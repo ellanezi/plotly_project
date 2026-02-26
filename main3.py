@@ -8,7 +8,7 @@ print(df.head())
 
 app=Dash(__name__)
 app.layout=html.Div([# everything here appears on the web page
-   html.H1("Interactive sales board"),
+   html.H1("SALES BOARD PERFORMANCE",style={'text-align': 'center'}),
    dcc.Dropdown(
            id='region-dropdown',
         options=[{'label': r, 'value': r} for r in df['Region'].unique()],
@@ -28,8 +28,8 @@ app.layout=html.Div([# everything here appears on the web page
        min=df['Profit'].min(),
        max=df['Profit'].max(),
        value=df['Profit'].min(),  # Start at minimum (show all)
-       marks={int(df['Profit'].min()): f"${int(df['Profit'].min())}", 
-              int(df['Profit'].max()): f"${int(df['Profit'].max())}"},
+       marks={int(df['Profit'].min()): f"₦{int(df['Profit'].min())}", 
+              int(df['Profit'].max()): f"₦{int(df['Profit'].max())}"},
        tooltip={"placement": "bottom", "always_visible": True}
    ),
    html.Br(),

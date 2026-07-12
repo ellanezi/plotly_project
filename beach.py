@@ -34,15 +34,18 @@ print("Pie chart saved: open 'dividend_pie_chart1.html' in browser")
 #aggregating data by sectors
 df=df.sort_values('Year')
 #normalize dividends by sector
-sector_mean= df.groupby('SECTOR')['DividendPaid'].mean()#groups sectors and calculates average dividend paid for each across all years
-df['DividendNorm']=df['DividendPaid']/ df['SECTOR'].map(sector_mean)*100 #each dividend value is expressed as its sector average
-ohlc=df.groupby('SECTOR').agg( 
+sector_mean= df.groupby('SECTOR')['DividendPaid'].mean()
+#sector_mean groups sectors and calculates average dividend paid for each across all years
+df['DividendNorm']=df['DividendPaid']/ df['SECTOR'].map(sector_mean)*100 
+#dividendNorm expresses each company's dividend as a % of its sector's average(avrage dividend paid across all companies within thar sector).
+ohlc=df.groupby('SECTOR').agg( #summarizes each sector into 4 values
 #to collapse the rows with multiple sectors into one row per sector
     Open=('DividendNorm','first'),
     High=('DividendNorm','max'),
     Low=('DividendNorm','min'),
     Close=('DividendNorm','last')
-).reset_index()#to reset the rows in the dataframe after filtering 
+).reset_index()
+#to reset the rows in the dataframe after filtering  ie converts it back to normal so it can be read correctly
 #making the candle stick figures
 fig2=go.Figure(data=[go.Candlestick(
     x=ohlc['SECTOR'],#x axis each sector
